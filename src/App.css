@@ -1,4 +1,4 @@
-/* Reset and base styles */
+
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
@@ -11,7 +11,7 @@ h1 {
   color: #333;
 }
 
-/* Form */
+
 form {
   display: flex;
   gap: 0.5rem;
@@ -41,7 +41,7 @@ button:hover {
   background-color: #145ca3;
 }
 
-/* Task list */
+
 ul {
   list-style: none;
   padding: 0;
@@ -64,10 +64,6 @@ li span {
   cursor: pointer;
 }
 
-li span.completed {
-  text-decoration: line-through;
-  color: gray;
-}
 
 li button {
   margin-left: 0.5rem;

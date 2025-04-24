@@ -21,7 +21,7 @@ function App() {
       completed: false
     };
 
-    fetch('http://localhost:3001/todos', {
+    fetch('http://localhost:3000/tasks', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newTask)
@@ -31,7 +31,7 @@ function App() {
   }
 
   function deleteTask(id) {
-    fetch(`http://localhost:3001/todos/${id}`, {
+    fetch(`http://localhost:3000/tasks/${id}`, {
       method: 'DELETE'
     })
     .then(() => setTasks(tasks.filter(task => task.id !== id)));
@@ -46,7 +46,7 @@ function App() {
   
 
   function updateTask(id, newTitle) {
-    fetch(`http://localhost:3001/todos/${id}`, {
+    fetch(`http://localhost:3000/tasks/${id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ title: newTitle })
@@ -60,19 +60,7 @@ function App() {
     });
   }
 
-  function toggleComplete(id, completed) {
-    fetch(`http://localhost:3001/todos/${id}`, {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ completed: !completed })
-    })
-    .then(res => res.json())
-    .then(updated => {
-      setTasks(tasks.map(task =>
-        task.id === id ? updated : task
-      ));
-    });
-  }
+  
  
   return (
     <div>
@@ -87,10 +75,7 @@ function App() {
         tasks={tasks}
         onDelete={deleteTask}
         onEdit={startEditing}
-        onToggle={(id) => {
-          const task = tasks.find(t => t.id === id);
-          toggleComplete(id, task.completed);
-        }}
+        
       />
     </div>
   );

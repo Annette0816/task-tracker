@@ -1,15 +1,9 @@
 import React from 'react';
 
-function Task({ task, onDelete, onEdit, onToggle }) {
+function Task({ task, onDelete, onEdit }) {
   return (
     <li>
-      <span 
-        style={{ 
-          textDecoration: task.completed ? 'line-through' : 'none', 
-          cursor: 'pointer' 
-        }}
-        onClick={() => onToggle(task.id)}
-      >
+      <span >
         {task.title}
       </span>
       <button onClick={() => onEdit(task)}>Edit</button>
