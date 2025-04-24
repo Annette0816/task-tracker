@@ -9,7 +9,7 @@ function App() {
 
   
   useEffect(() => {
-    fetch('http://localhost:3000/tasks')
+    fetch('https://task-tracker--kappa.vercel.app/')
       .then(res => res.json())
       .then(data => setTasks(data));
   }, []);
@@ -21,7 +21,7 @@ function App() {
       completed: false
     };
 
-    fetch('http://localhost:3000/tasks', {
+    fetch('https://task-tracker--kappa.vercel.app/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newTask)
@@ -31,7 +31,7 @@ function App() {
   }
 
   function deleteTask(id) {
-    fetch(`http://localhost:3000/tasks/${id}`, {
+    fetch(`https://task-tracker--kappa.vercel.app//${id}`, {
       method: 'DELETE'
     })
     .then(() => setTasks(tasks.filter(task => task.id !== id)));
@@ -46,7 +46,7 @@ function App() {
   
 
   function updateTask(id, newTitle) {
-    fetch(`http://localhost:3000/tasks/${id}`, {
+    fetch(`https://task-tracker--kappa.vercel.app//${id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ title: newTitle })
