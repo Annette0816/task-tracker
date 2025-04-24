@@ -1,11 +1,20 @@
-import React from 'react'
+import React from 'react';
+import Task from './Tasks';
 
-const TaskList = () => {
+function TaskList({ tasks, onDelete, onEdit, onToggle }) {
   return (
-    <div>
-      
-    </div>
-  )
+    <ul>
+      {tasks.map(task => (
+        <Task
+          key={task.id}
+          task={task}
+          onDelete={onDelete}
+          onEdit={onEdit}
+          onToggle={onToggle}
+        />
+      ))}
+    </ul>
+  );
 }
 
-export default TaskList
+export default TaskList;

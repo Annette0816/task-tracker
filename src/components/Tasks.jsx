@@ -1,11 +1,21 @@
-import React from 'react'
+import React from 'react';
 
-const Tasks = () => {
+function Task({ task, onDelete, onEdit, onToggle }) {
   return (
-    <div>
-      
-    </div>
-  )
+    <li>
+      <span 
+        style={{ 
+          textDecoration: task.completed ? 'line-through' : 'none', 
+          cursor: 'pointer' 
+        }}
+        onClick={() => onToggle(task.id)}
+      >
+        {task.title}
+      </span>
+      <button onClick={() => onEdit(task)}>Edit</button>
+      <button onClick={() => onDelete(task.id)}>Delete</button>
+    </li>
+  );
 }
 
-export default Tasks
+export default Task;
